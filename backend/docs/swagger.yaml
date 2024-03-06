@@ -1,0 +1,97 @@
+definitions:
+  models.Promo:
+    properties:
+      createdAt:
+        type: string
+      finishDate:
+        type: string
+      id:
+        type: integer
+      promoCode:
+        type: string
+      promoDescription:
+        type: string
+      promoDiscount:
+        type: string
+      promoPictureURL:
+        type: string
+      promoType:
+        type: string
+      startDate:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /create-promo:
+    post:
+      consumes:
+      - application/json
+      description: Create a new promo
+      parameters:
+      - description: Promo Details
+        in: body
+        name: promo
+        required: true
+        schema:
+          $ref: '#/definitions/models.Promo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Promo'
+      summary: Create new promo
+  /delete-promo/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: Delete promo
+      parameters:
+      - description: Promo ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Promo'
+      summary: Delete promo
+  /get-promos:
+    get:
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Promo'
+      summary: List all promos
+  /update-promo:
+    put:
+      consumes:
+      - application/json
+      description: Update a new promo
+      parameters:
+      - description: Promo Details
+        in: body
+        name: promo
+        required: true
+        schema:
+          $ref: '#/definitions/models.Promo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Promo'
+      summary: Update new promo
+swagger: "2.0"
